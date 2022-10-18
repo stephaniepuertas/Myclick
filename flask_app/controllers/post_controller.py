@@ -3,10 +3,10 @@ from flask_app import app, render_template, redirect, request, session
 from flask_app.models.post_model import Post
 from flask_app.models.user_model import User
 
-# main profile page
-@app.get('/profile')
-def profile():
-    return render_template('profile.html')
+# # main profile page
+# @app.get('/profile')
+# def profile():
+#     return render_template('profile.html')
 
 
 # display all posts
@@ -20,7 +20,8 @@ def all_posts():
     user= User.find_by_id(data)
     # you use the find all creator to get the information of the creator
     posts = Post.find_all_with_creator()
-    return render_template('dashboard.html', post = posts, user=user)
+    pprint(posts)
+    return render_template('dashboard.html', posts = posts, user=user)
 
 # display one post by id
 @app.get('/posts/<int:post_id>')

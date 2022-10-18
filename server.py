@@ -1,6 +1,6 @@
 from flask_app import app
 from flask_bootstrap import Bootstrap5
-app.config['BOOTSTRAP_BOOTSWATCH_THEME']=''
+app.config['BOOTSTRAP_BOOTSWATCH_THEME']='sketchy'
 bstrap= Bootstrap5(app)
 
 
