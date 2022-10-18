@@ -27,6 +27,7 @@ def register_user():
     hashed = bcrypt.generate_password_hash(request.form['password'])
     # print(hashed)
     data= {
+        'username':request.form['username'],
         'first_name':request.form['first_name'],
         'last_name':request.form['last_name'],
         'email':request.form['email'],

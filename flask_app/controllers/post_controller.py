@@ -15,7 +15,7 @@ def all_posts():
     user= User.find_by_id(data)
     # you use the find all creator to get the information of the creator
     posts = Post.find_all_with_creator()
-    return render_template('dashboard.html', posts = posts, user=user)
+    return render_template('dashboard.html', post = posts, user=user)
 
 # display one post by id
 @app.get('/posts/<int:post_id>')

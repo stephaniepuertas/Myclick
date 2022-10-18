@@ -22,7 +22,7 @@ class User:
         self.posts=[]
     
     def __repr__(self):
-        return f'<User: {self.first_name}>'
+        return f'<User: {self.username}>'
 
     @staticmethod
     def validate_registration(form):
