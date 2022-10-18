@@ -1,4 +1,8 @@
 from flask_app import app
+from flask_bootstrap import Bootstrap5
+app.config['BOOTSTRAP_BOOTSWATCH_THEME']=''
+bstrap= Bootstrap5(app)
+
 
 # Remember to import controllers
 from flask_app.controllers import post_controller, user_controller

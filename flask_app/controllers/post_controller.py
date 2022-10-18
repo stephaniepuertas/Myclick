@@ -3,6 +3,11 @@ from flask_app import app, render_template, redirect, request, session
 from flask_app.models.post_model import Post
 from flask_app.models.user_model import User
 
+# main profile page
+@app.get('/profile')
+def profile():
+    return render_template('profile.html')
+
 
 # display all posts
 @app.get('/posts')
