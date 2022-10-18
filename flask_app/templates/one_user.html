@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+    <title>One user w/ Posts</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- beginning of navbar -->
+        <nav class="navbar navbar-expand-lg mb-3" style="background-color: #e3f2fd;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Posts!</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/posts">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/posts/new">Create post</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/logout">Logout</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- end of navbar -->
+
+        <div class="row">
+            <div class="col">
+                <!-- form to edit User -->
+                <div class="card">
+                    <div class="cardheader">
+                        <h3>Update User</h3>
+                    </div>
+                    <div class="card-body">
+                        {% with messages = get_flashed_messages (with_categories = true) %}
+                        <form action="/users/{{user.id}}/update" method="post">
+                            <input type="hidden" name="id" value="{{user.id}}">
+                            <div class="mb-3">
+                                <label for="first_name" class="form-label">First name:</label>
+                                <input type="text" name="first_name" id="first_name" value="{{user.first_name}}"
+                                    class="form-control">
+                                {% if messages %}
+                                {% for category, message in messages %}
+                                {% if category == 'first_name'%}
+                                <span class="form-text text-danger">{{message}}</span>
+                                {% endif%}
+                                {% endfor%}
+                                {% endif%}
+                            </div>
+                            <div class="mb-3">
+                                <label for="last_name" class="form-label">Last name:</label>
+                                <input type="text" name="last_name" id="last_name" value="{{user.last_name}}"
+                                    class="form-control">
+                                {% if messages %}
+                                {% for category, message in messages %}
+                                {% if category == 'last_name'%}
+                                <span class="form-text text-danger">{{message}}</span>
+                                {% endif%}
+                                {% endfor%}
+                                {% endif%}
+                            </div>
+                            <!-- email   -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="text" name="email" id="email" value="{{user.email}}" class="form-control">
+                                {% if messages %}
+                                {% for category, message in messages %}
+                                {% if category == 'email'%}
+                                <span class="form-text text-danger">{{message}}</span>
+                                {% endif%}
+                                {% endfor%}
+                                {% endif%}
+                            </div>
+                            <!-- button -->
+                            <div class="d-flex justify-content-end">
+                                <input type="submit" value="UPDATE" class="btn btn-primary">
+                            </div>
+                        </form>
+                        {% endwith%}
+                        <!-- end of form to edit User -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="cardheader mb-3">
+                            <h4>{{user.first_name}}'s Posts</h4>
+                        </div>
+                        <!--  table with all posts     -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Created_At</th>
+                                    <th>Updated_At</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- joining table need to make sure you are calling through correct table  -->
+                                {% for post in user.posts %}
+                                <tr>
+                                    <td>{{ post.title }}</td>
+                                    <td>{{ post.description}}</td>
+                                    <td>{{post.created_at }}</td>
+                                    <td>{{post.updated_at }}</td>
+                                    <td>
+                                        {% if post.user_id == session.user_id %}
+                                        <div class="card-footer ">
+                                            <a class="btn btn-sm btn-danger"
+                                                href="/posts/{{ post.id }}/delete">Delete</a>
+                                        </div>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <a href="/posts">Home</a>
+                    </div>
+                </div>
+            </div>
+            <!-- end of table    -->
+        </div>
+    </div>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

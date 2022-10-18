@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+    <title>Edit Post</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- beginning of navbar -->
+        <nav class="navbar navbar-expand-lg mb-3" style="background-color: #e3f2fd;">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#">Posts!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/posts">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/posts/new">Create post</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/posts/logout">Logout</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li> --> 
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <!-- end of navbar -->
+
+        <div class="row">
+            <div class="col">
+                <h1>Edit Post!</h1>
+            </div>
+            <div class="col">
+                <a href="/posts">Back to posts</a>
+                <a href="/users/logout">Logout</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        {% with messages = get_flashed_messages(with_categories = true) %}
+                        <!-- this is where you will end up after submitting form -->
+                        <form action="/posts/{{post.id}}/update" method="post">
+                            <!-- must add hidden id  -->
+                            <input type="hidden" name="user_id" value="{{ post.user_id }}">
+                            <!-- necessary id for the update method -->
+                            <input type="hidden" name="id" value="{{ post.id }}">
+
+                            
+                            <!-- portion for title -->
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title:</label>
+                                <!-- for prepopulated form you add the jinja tags in the area near the text -- where you would normally put  -->
+                                <textarea name="title" id="title" class="form-control" >{{post.title}}</textarea>
+                                {% if messages %}
+                                    {% for category, message in messages %}
+                                        {% if category == 'title' %}
+                                        <span class="form-text text-danger">{{ message }}</span>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <!-- portion for description  -->
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description:</label>
+                                <textarea name="description" id="description" class="form-control">{{post.description}}</textarea>
+                                {% if messages %}
+                                    {% for category, message in messages %}
+                                        {% if category == 'description' %}
+                                        <span class="form-text text-danger">{{ message }}</span>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+
+                            <!-- portion for button -->
+                            <div class="d-flex justify-content-end">
+                                <input type="submit" value="UPDATE POST" class="btn btn-primary">
+                            </div>
+                        </form>
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
