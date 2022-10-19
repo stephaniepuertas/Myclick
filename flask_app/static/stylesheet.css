@@ -2,10 +2,36 @@
     width: 970px;
     padding: 25px;
 }
+/* formatting box for profile info */
+.profilebox{
+    border: 2px solid rgb(80, 119, 247);
+    width: 303px;
+    height:339px;
+    background-color: #dfe6ff;
+    
+}
+/* provides margin space for post in dashboard page */
+.space{
+    margin-left: 58px;
+    margin-right: -96px;
+}
+/* space for my mail section */
+.my_mail{
+    margin-top: 24px;
+    margin-left: 20px;
+}
+/* formatting for margins for view my profile in dashboard */
+.view_profile{
+    margin-left: 40px;
+    margin-right: -127px;
+    margin-top: 30px;
+}
 .box{
     border: 2px solid rgb(80, 119, 247);
 }
 .blue-head{
+    padding-top: 14px;
+    margin-top: -3px;
     background-color:#0783ca ;
 }
 .white-letters{
@@ -13,8 +39,10 @@
 }
 .header-title{
     background-color: #4624df ;
-    padding: 3px;
+    padding: 13px;
     margin-left: -8px;
+    padding-top: 24px;
+    padding-bottom: 10px;
     color: white;
 }
 .sizedbox{
@@ -29,4 +57,21 @@
 }
 .yellowbg{
     background-color:rgba(212, 182, 10, 0.903) ;
+}
+/* resizing logo for header/title */
+.logo{
+    height: 30px;
+    width: 30px;
+}
+/* moving header/logo icon */
+.logo-icon{
+    margin-left: 2px;
+    margin-bottom: -53px;
+}
+/* moving logo for header  */
+.movinglogoname{
+    margin-left: 41px;
+}
+.movesearch{
+    margin-top: -46px;
 }

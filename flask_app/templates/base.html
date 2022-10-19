@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
-.h1{
-    margin-top: 17px;
-}    
-.h5{
-    margin-bottom:16px ;
-}
-.header{
-    margin-left: 8px;
-}
+    .h1 {
+        margin-top: 17px;
+    }
 
+    .h5 {
+        margin-bottom: 16px;
+    }
+
+    .header {
+        margin-left: 8px;
+    }
 </style>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,8 +28,18 @@
     <div class="container">
         <div class="header">
             <div class="header-title">
-                <div class="h1">MyClick</div>
-                <div class="h5">a place for cliques</div>
+                <div class="logo-icon">
+                    <img src="../static/images/myclicklogo.png" class="logo" alt="logo">
+                </div>
+                <div class="movinglogoname">
+                    <div class="h1">MyClick</div>
+                    <div class="h5">a place for cliques</div>
+                </div>
+                <!-- searchbar -->
+                <form class="form-search pull-right movesearch">
+                    <input type="text" class="input-medium search-query">
+                    <button type="submit" class="btn">Search</button>
+                </form>
             </div>
         </div>
         <!-- beginning of navbar -->
@@ -49,7 +61,7 @@
 
 
 
-        
+
 
         {%block content%} {%endblock%}
     </div>
