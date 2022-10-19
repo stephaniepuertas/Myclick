@@ -44,7 +44,11 @@ def one_post(post_id):
 def new_post():
     if 'user_id' not in session:
         return redirect('/users/login_reg')
-    return render_template('new_post.html')
+    user_data = {
+        'id': session['user_id']
+    }
+    user = User.find_by_id(user_data)
+    return render_template('new_post.html', user=user)
 
 # process form and create a post
 @app.post('/posts')
@@ -63,9 +67,13 @@ def edit_post(post_id):
     data = {
         'id': post_id
     }
+    user_data = {
+        'id': session['user_id']
+    }
+    user = User.find_by_id(user_data)
     post = Post.find_by_id_with_creator(data)
     print(f'**** FOUND - POST ID: {post.id} ****')
-    return render_template('edit_post.html', post = post)
+    return render_template('edit_post.html', post = post, user=user)
 
 # process form and update a post by id
 @app.post('/posts/<int:post_id>/update')

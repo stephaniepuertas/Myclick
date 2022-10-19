@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>MyClick - {%block title%} {%endblock title%}</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-title">
+                <div class="h1">MyClick</div>
+                <div class="h5">a place for cliques</div>
+            </div>
+        </div>
+        <!-- beginning of navbar -->
+        <div class="navbar">
+            <div class="navbar-inner">
+                <!-- <a class="brand" href="#"> Welcome, {{user.first_name}}</a> -->
+                <ul class="nav">
+                    <li class="active"><a href="/posts">Home</a></li>
+                    <li><a href="/posts/new">Blog</a></li>
+                    <li><a href="#">Messages</a></li>
+                    <li><a href="/users/{{user.id}}/account">Account</a></li>
+                    <li><a href="/users/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- end of navbar -->
+
+
+
+        
+
+        {%block content%} {%endblock%}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
