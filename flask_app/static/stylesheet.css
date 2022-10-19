@@ -1,0 +1,32 @@
+.container{
+    width: 970px;
+    padding: 25px;
+}
+.box{
+    border: 2px solid rgb(80, 119, 247);
+}
+.blue-head{
+    background-color:#0783ca ;
+}
+.white-letters{
+    color: white;
+}
+.header-title{
+    background-color: #4624df ;
+    padding: 3px;
+    margin-left: -8px;
+    color: white;
+}
+.sizedbox{
+    width: 299px;
+}
+.moving{
+    margin-left: 167px;
+    margin-right: -196px;
+}
+.yellow-box{
+    border: 2px solid rgba(212, 182, 10, 0.903);
+}
+.yellowbg{
+    background-color:rgba(212, 182, 10, 0.903) ;
+}

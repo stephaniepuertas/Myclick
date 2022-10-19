@@ -8,7 +8,7 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
-.clearfix {
+ .clearfix {
     *zoom: 1;
   }
   
@@ -226,12 +226,12 @@
     font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", "Marker Felt", "Purisa", "URW Chancery L", cursive, sans-serif;
     font-size: 16px;
     line-height: 20px;
-    color: #ffff00;
+    color: #292923;
     background-color: #0000ff;
   }
   
   a {
-    color: #00eeee;
+    color: #1575ab;
     text-decoration: none;
   }
   
@@ -2953,7 +2953,7 @@
     color: #333333;
     white-space: nowrap;
   }
-  
+
   .dropdown-menu > li > a:hover,
   .dropdown-menu > li > a:focus,
   .dropdown-submenu:hover > a,
@@ -4604,7 +4604,7 @@
   .navbar .nav > li > a {
     float: none;
     padding: 10px 15px 10px;
-    color: #00ff00;
+    color: #ffffff;
     text-decoration: none;
     text-shadow: 0 1px 0 #000000;
   }
@@ -6206,7 +6206,7 @@
   
   body {
     -webkit-font-smoothing: none;
-    background: #0000ff url('../img/microfab.gif') top left;
+    background: white url('../img/microfab.gif') top left;
   }
   
   .navbar {
@@ -6217,7 +6217,7 @@
   }
   
   .navbar-inner {
-    background: #000000 url('../img/stars.gif') top left;
+    background: #0783ca url('../img/stars.gif') top left;
     border-bottom: 1px solid #D4D0C8;
   }
   
