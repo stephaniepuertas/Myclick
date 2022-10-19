@@ -8,4 +8,4 @@ bstrap= Bootstrap5(app)
 from flask_app.controllers import post_controller, user_controller
 
 if __name__ == '__main__':
-    app.run(debug=True, host='localhost', port=5001)
+    app.run(debug=True, host='localhost', port=5000)

@@ -1,26 +1,10 @@
 {%extends 'base.html'%}
+
 {%block title%}Dashboard{%endblock%}
 
 {%block content%}
 
-
-<!-- <div class="row">
-    <div class="span6">
-        <div class="card">
-            <h5 class="card-header">Profile</h5>
-        </div>
-    </div>
-</div> -->
-<!-- posts  -->
-
-<!-- <div class="row">
-    <div class="span4">
-        <div class="card">
-            <div class="page-header"><h5> Welcome, {{user.first_name}}</h5></div>
-        
-        </div>
-    </div>
-</div> -->
+<!-- left side -->
 <div class="row">
     <div class="span6">
         <div class="card">
@@ -28,7 +12,10 @@
             <div class="card-body">
                 <div class="">
                     <div class="h5">Welcome {{user.first_name}},</div>
-                    <div class="links">
+                    <div class="span2">
+                        <img src="..." class="rounded float-left" alt="...">
+                    </div>
+                    <div class="span1">
                         <a href="#"> Edit Profile</a>
                         <a href="#">Edit Status</a>
                         <a href="#">Add/Edit Photo</a>
@@ -86,5 +73,19 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- card for messages -->
+    <div class="row">
+        <div class="span3">
+            <div class="card">
+                <div class="card-header">
+                    <div class="h2">My Mail</div>
+                    <div class="card-body">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     {%endblock%}
