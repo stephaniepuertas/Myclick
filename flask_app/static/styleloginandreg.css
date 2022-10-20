@@ -1,3 +1,52 @@
 .body{
     background-color: #596886;
+    min-height: 100vh;
+    margin: 0;
+}
+.input{
+    text-align: center;
+    border-radius: 20px;
+    display: flex;
+    min-height: 50px;
+    min-width: 300px;
+    color: #ffd5af;
+    background: linear-gradient(to right, #ffd5af 50%, #052b4a 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 0.5s ease;
+    border-style: solid;
+    border-color: #ffd5af;
+}
+
+#button{
+    font-size: large;
+    padding: 15px 100px 15px;
+    border-radius: 30px;
+    border: 1px solid #ffd5af;
+    background: #052b4a;
+    color: #ffd5af;
+    cursor: pointer;
+    outline: none;
+    transform: scaleX(1);
+    transition: 0.5s all ease;
+}
+
+.register-button{
+    text-align: center;
+    padding-top: 60px;
+}
+
+.login-button{
+    padding-top: 60px;
+}
+.movingicon{
+    margin-top: 22px;
+    margin-left: 12px;
+}
+.logo{
+    height: 473px;
+    width: 639px;
+    margin-left: 135px;
+    margin-top: -67px;
+
 }
