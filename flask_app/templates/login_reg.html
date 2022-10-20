@@ -1,65 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='styleloginandreg.css')}}">
     <title>Login or register for our site</title>
 </head>
 
 <body>
+<div class="body">
+
     {% with messages = get_flashed_messages (with_categories = true) %}
     <div class="container mt-3"> 
         <div class="h1">MyClick</div>
         <div class="h5 mb-3">a place for cliques</div>
         <div class="row">
-            <div class="span6"> 
-                <div class="card">
-                    <h5 class="card-header"> REGISTER</h5>
+            <div class="col"> 
+                <div class="card mb-3">
+                    <h5 class="card-header"> Register</h5>
                     <div class="card-body">
                         <form action="/users/register" method="post">
-
                                             <!-- username -->
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username:</label>
-                            <input type="text" name="username" id="username" class="form-control">
-                            {% if messages %}
-                                {% for category, message in messages %}
-                                    {% if category == 'username'%}
-                                        <span class="form-text text-danger">{{message}}</span>
+                                            <div class="mb-3">
+                                                <label for="username" class="form-label">Username:</label>
+                                                <input type="text" name="username" id="username" class="form-control">
+                                                {% if messages %}
+                                                {% for category, message in messages %}
+                                                {% if category == 'username'%}
+                                                <span class="form-text text-danger">{{message}}</span>
+                                                {% endif%}
+                                                {% endfor%}
+                                                {% endif%}
+                                            </div>
+                                            
+                                            <!-- first name -->
+                                            <div class="mb-3">
+                                                <label for="first_name" class="form-label">First name:</label>
+                                                <input type="text" name="first_name" id="first_name" class="form-control">
+                                                {% if messages %}
+                                                {% for category, message in messages %}
+                                                {% if category == 'first_name'%}
+                                                <span class="form-text text-danger">{{message}}</span>
                                     {% endif%}
                                 {% endfor%}
-                            {% endif%}
-                        </div>
-
-                                        <!-- first name -->
-                        <div class="mb-3">
-                            <label for="first_name" class="form-label">First name:</label>
-                            <input type="text" name="first_name" id="first_name" class="form-control">
-                            {% if messages %}
+                                {% endif%}
+                            </div>
+                            <!-- last name -->
+                            <div class="mb-3">
+                                <label for="last_name" class="form-label">Last name:</label>
+                                <input type="text" name="last_name" id="last_name" class="form-control">
+                                {% if messages %}
                                 {% for category, message in messages %}
-                                    {% if category == 'first_name'%}
-                                        <span class="form-text text-danger">{{message}}</span>
-                                    {% endif%}
+                                {% if category == 'last_name'%}
+                                <span class="form-text text-danger">{{message}}</span>
+                                {% endif%}
                                 {% endfor%}
-                            {% endif%}
-                        </div>
-                                            <!-- last name -->
-                        <div class="mb-3">
-                            <label for="last_name" class="form-label">Last name:</label>
-                            <input type="text" name="last_name" id="last_name" class="form-control">
-                            {% if messages %}
-                                {% for category, message in messages %}
-                                    {% if category == 'last_name'%}
-                                    <span class="form-text text-danger">{{message}}</span>
-                                    {% endif%}
-                                {% endfor%}
-                            {% endif%}
-                        </div>
-                                    <!-- email -->
-                        <div class="mb-3">
+                                {% endif%}
+                            </div>
+                            <!-- email -->
+                            <div class="mb-3">
                             <label for="email" class="form-label">Email:</label>
                             <input type="text" name="email" id="email" class="form-control">
                             {% if messages %}
@@ -67,43 +69,44 @@
                                     {% if category == 'email'%}
                                     <span class="form-text text-danger">{{message}}</span>
                                     {% endif%}
-                                {% endfor%}
-                            {% endif%}
-                        </div>
-                                    <!-- password -->
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password:</label>
-                            <input type="password" name="password" id="password" class="form-control">
-                            {% if messages %}
-                                {% for category, message in messages %}
+                                    {% endfor%}
+                                    {% endif%}
+                                </div>
+                                <!-- password -->
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password:</label>
+                                    <input type="password" name="password" id="password" class="form-control">
+                                    {% if messages %}
+                                    {% for category, message in messages %}
                                     {% if category == 'password'%}
                                     <span class="form-text text-danger">{{message}}</span>
                                     {% endif%}
-                                {% endfor%}
-                            {% endif%}
-                        </div>
-                                    <!-- confirm password -->
-                        <div class="mb-3">
-                            <label for="confirm_password" class="form-label">Confirm Password:</label>
-                            <input type="password" name="confirm_password" id="confirm_password" class="form-control">
-                            {% if messages %}
-                                {% for category, message in messages %}
-                                    {% if category == 'confirm_password'%}
-                                    <span class="form-text text-danger">{{message}}</span>
+                                    {% endfor%}
                                     {% endif%}
+                                </div>
+                                <!-- confirm password -->
+                                <div class="mb-3">
+                                    <label for="confirm_password" class="form-label">Confirm Password:</label>
+                                    <input type="password" name="confirm_password" id="confirm_password" class="form-control">
+                                    {% if messages %}
+                                {% for category, message in messages %}
+                                {% if category == 'confirm_password'%}
+                                <span class="form-text text-danger">{{message}}</span>
+                                {% endif%}
                                 {% endfor%}
-                            {% endif%}
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <input type="submit" value="REGISTER" class="btn btn-primary">
+                                {% endif%}
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <input type="submit" value="REGISTER" class="btn btn-primary">
+                            </div>
                         </div>
                     </div>
-                </div>
                 
             </form>
 
             </div>
-            <div class="span6">
+            
+            <div class="col">
                 <div class="card">
                     <h5 class="card-header"> Login</h5>
                     <div class="card-body">
@@ -111,24 +114,24 @@
                         <form action="/users/login" method="post">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email:</label>
-                                <input type="text" name="email" id="email" class="form-control">
+                                <input type="text" name="email" id="email" placeholder="Email" class="form-control">
                                 {% if messages %}
-                                    {% for category, message in messages %}
-                                        {% if category == 'log_email'%}
-                                        <span class="form-text text-danger">{{message}}</span>
-                                        {% endif%}
-                                    {% endfor%}
+                                {% for category, message in messages %}
+                                {% if category == 'log_email'%}
+                                <span class="form-text text-danger">{{message}}</span>
+                                {% endif%}
+                                {% endfor%}
                                 {% endif%}
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password:</label>
-                                <input type="password" name="password" id="password" class="form-control">
+                                <input type="password" name="password" placeholder="Password" id="password" class="form-control">
                                 {% if messages %}
-                                    {% for category, message in messages %}
-                                        {% if category == 'log_password'%}
-                                        <span class="form-text text-danger">{{message}}</span>
-                                        {% endif%}
-                                    {% endfor%}
+                                {% for category, message in messages %}
+                                {% if category == 'log_password'%}
+                                <span class="form-text text-danger">{{message}}</span>
+                                {% endif%}
+                                {% endfor%}
                                 {% endif%}
                             </div>
                             <div class="d-flex justify-content-end">
@@ -141,6 +144,7 @@
         </div>
     </div>
     {% endwith %}
+</div>
 </body>
 
 </html>

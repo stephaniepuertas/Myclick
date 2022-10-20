@@ -3,61 +3,62 @@
 
 {%block content%}
 <!-- end of navbar -->
-
-<div class="row">
-    <div class="col">
-        <h1>Add a Post</h1>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Add a Post</h1>
+        </div>
+        <div class="col">
+            <a href="/posts">Dashboard</a>
+            <a href="/users/logout">Logout</a>
+        </div>
     </div>
-    <div class="col">
-        <a href="/posts">Dashboard</a>
-        <a href="/users/logout">Logout</a>
+    <div class="row">
+        <div class="col">
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col">
-    </div>
-</div>
-<div class="row">
-    <div class="col">
-        <div class="card">
-            <div class="card-body">
-                {% with messages = get_flashed_messages(with_categories = true) %}
-                <form action="/posts" method="post">
-                    <!-- must add hidden id  -->
-                    <input type="hidden" name="user_id" value="{{ session.user_id }}">
-
-                    <!-- portion for title -->
-                    <div class="mb-3">
-                        <label for="title" class="form-label">Title:</label>
-                        <textarea name="title" id="title" class="form-control"></textarea>
-                        {% if messages %}
-                        {% for category, message in messages %}
-                        {% if category == 'title' %}
-                        <span class="form-text text-danger">{{ message }}</span>
-                        {% endif %}
-                        {% endfor %}
-                        {% endif %}
-                    </div>
-                    <!-- portion for description  -->
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Description:</label>
-                        <textarea name="description" id="description" class="form-control"></textarea>
-                        {% if messages %}
-                        {% for category, message in messages %}
-                        {% if category == 'description' %}
-                        <span class="form-text text-danger">{{ message }}</span>
-                        {% endif %}
-                        {% endfor %}
-                        {% endif %}
-
-                        <!-- portion for button -->
-                        <div class="d-flex justify-content-end">
-                            <input type="submit" value="SUBMIT" class="btn btn-primary">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    {% with messages = get_flashed_messages(with_categories = true) %}
+                    <form action="/posts" method="post">
+                        <!-- must add hidden id  -->
+                        <input type="hidden" name="user_id" value="{{ session.user_id }}">
+    
+                        <!-- portion for title -->
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title:</label>
+                            <textarea name="title" id="title" class="form-control"></textarea>
+                            {% if messages %}
+                            {% for category, message in messages %}
+                            {% if category == 'title' %}
+                            <span class="form-text text-danger">{{ message }}</span>
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
                         </div>
-                </form>
-                {% endwith %}
+                        <!-- portion for description  -->
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description:</label>
+                            <textarea name="description" id="description" class="form-control"></textarea>
+                            {% if messages %}
+                            {% for category, message in messages %}
+                            {% if category == 'description' %}
+                            <span class="form-text text-danger">{{ message }}</span>
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+    
+                            <!-- portion for button -->
+                            <div class="d-flex justify-content-end">
+                                <input type="submit" value="SUBMIT" class="btn btn-primary">
+                            </div>
+                    </form>
+                    {% endwith %}
+                </div>
             </div>
         </div>
     </div>
+    {%endblock%}
 </div>
-{%endblock%}

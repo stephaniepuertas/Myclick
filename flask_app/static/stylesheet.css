@@ -19,9 +19,10 @@
 .my_mail{
     margin-top: 24px;
     margin-left: 20px;
+    width: ;
 }
 /* formatting for margins for view my profile in dashboard */
-.view_profile{
+.myprofile{
     margin-left: 40px;
     margin-right: -127px;
     margin-top: 30px;
@@ -74,4 +75,11 @@
 }
 .movesearch{
     margin-top: -46px;
+}
+.view_profile{
+    margin-top: 171px;
+    width: 322px;
+    margin-left: 3px;
+
+
 }

@@ -1,117 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    html,
-    .body {
-        margin: 0;
-        background: #596886;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        font-family: "Roboto Mono", monospace;
-    }
-
-    form {
-        margin-bottom: 20%;
-    }
-
-    input {
-        text-align: center;
-        border-radius: 20px;
-        display: flex;
-        min-height: 50px;
-        min-width: 300px;
-        color: #ffd5af;
-        background: linear-gradient(to right, #ffd5af 50%, #052b4a 50%);
-        background-size: 200% 100%;
-        background-position: right bottom;
-        transition: all 0.5s ease;
-        border-style: solid;
-        border-color: #ffd5af;
-    }
-
-    input::placeholder {
-        color: #ffd5af;
-    }
-
-    input:focus {
-        background-color: #ffd5af;
-        color: #052b4a;
-        background-position: left bottom;
-        outline: none;
-    }
-
-    i {
-        color: #ffd5af;
-        position: absolute;
-        padding: 18px 20px 10px;
-        font-size: larger;
-    }
-
-    .field {
-        margin: 20px;
-    }
-
-    button {
-        font-size: large;
-        padding: 15px 100px 15px;
-        border-radius: 30px;
-        border: 1px solid #ffd5af;
-        background: #052b4a;
-        color: #ffd5af;
-        cursor: pointer;
-        outline: none;
-        transform: scaleX(1);
-        transition: 0.5s all ease;
-    }
-
-    .loading {
-        padding: 15px 50px 15px;
-        background: #ffd5af;
-        color: #052b4a;
-    }
-
-    .submit-button {
-        text-align: center;
-        padding-top: 60px;
-    }
-
-    svg {
-        margin-left: 20px;
-    }
-
-    .spinner {
-        border: 6px solid #052b4a;
-        border-top: 6px solid #596886;
-        border-radius: 50%;
-        width: 10px;
-        height: 10px;
-        animation: spin 1.5s linear infinite;
-    }
-
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-</style>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <div class="body">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,500&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="{{url_for('static', filename='stylelogin.css')}}">
 
     <form>
         {% with messages = get_flashed_messages (with_categories = true) %}

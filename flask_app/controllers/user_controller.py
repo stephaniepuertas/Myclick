@@ -91,3 +91,8 @@ def update_user(user_id):
         return redirect(f'/users/{user_id}/account')
     User.find_by_id_and_update(request.form)
     return redirect(f'/users/{user_id}/account')
+
+# temp login page
+@app.get('/temp')
+def temp():
+    return render_template('login.html')
